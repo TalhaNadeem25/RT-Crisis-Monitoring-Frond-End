@@ -7,10 +7,11 @@ import {
   Globe, 
   History, 
   Home,
-  Menu, 
   MessageSquareText, 
   Settings,
-  X
+  Zap,
+  Cloud,
+  Bell
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -23,11 +24,12 @@ type SidebarProps = {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const navItems = [
     { name: 'Dashboard', icon: <Home size={20} />, path: '/' },
-    { name: 'Live Incidents', icon: <AlertTriangle size={20} />, path: '/incidents' },
-    { name: 'Map View', icon: <Globe size={20} />, path: '/map' },
+    { name: 'Live Crisis Feed', icon: <Zap size={20} />, path: '/live-feed' },
+    { name: 'Global Incidents', icon: <Globe size={20} />, path: '/incidents' },
+    { name: 'AI Insights', icon: <MessageSquareText size={20} />, path: '/ai-insights' },
     { name: 'Historical Data', icon: <History size={20} />, path: '/history' },
-    { name: 'Analytics', icon: <BarChart3 size={20} />, path: '/analytics' },
-    { name: 'Intelligence', icon: <MessageSquareText size={20} />, path: '/intelligence' },
+    { name: 'Predictive Analytics', icon: <BarChart3 size={20} />, path: '/analytics' },
+    { name: 'Alerts', icon: <Bell size={20} />, path: '/alerts' },
     { name: 'Settings', icon: <Settings size={20} />, path: '/settings' },
   ];
 
@@ -46,14 +48,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </div>
           <h1 className="font-bold text-xl text-sidebar-foreground">CrisisCopilot</h1>
         </div>
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={toggleSidebar}
-          className="text-sidebar-foreground hover:text-white hover:bg-sidebar-accent"
-        >
-          <X size={20} />
-        </Button>
       </div>
 
       <div className="flex-1 py-6 space-y-1 overflow-y-auto scrollbar-thin">
@@ -69,14 +63,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         ))}
       </div>
 
-      <div className="p-4 border-t border-sidebar-border">
+      <div className="p-4 border-t border-sidebar-border bg-sidebar-accent/30">
         <div className="flex items-center space-x-3">
-          <div className="h-9 w-9 rounded-full bg-primary/20 flex items-center justify-center">
-            <span className="text-xs font-semibold text-primary">RC</span>
+          <div className="h-9 w-9 rounded-full bg-crisis-medium/20 flex items-center justify-center">
+            <Cloud size={20} className="text-crisis-medium" />
           </div>
           <div>
-            <p className="text-sm font-medium text-sidebar-foreground">Response Coordinator</p>
-            <p className="text-xs text-muted-foreground">Online</p>
+            <p className="text-sm font-medium text-sidebar-foreground">AI Monitoring</p>
+            <p className="text-xs text-muted-foreground">Active • Real-time</p>
           </div>
         </div>
       </div>
