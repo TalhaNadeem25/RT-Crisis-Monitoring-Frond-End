@@ -7,6 +7,7 @@ import WorldMap from '@/components/WorldMap';
 import CrisisFeeds from '@/components/CrisisFeeds';
 import StatsOverview from '@/components/StatsOverview';
 import AIDrivenInsights from '@/components/AIDrivenInsights';
+import DataFlowDiagram from '@/components/DataFlowDiagram';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
@@ -75,7 +76,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               {crisisEvents.map((event) => (
                 <StatusCard
@@ -94,6 +95,10 @@ const Index = () => {
             <div className="h-full">
               <AIDrivenInsights />
             </div>
+          </div>
+          
+          <div className="mb-6">
+            <DataFlowDiagram />
           </div>
         </div>
       </main>
