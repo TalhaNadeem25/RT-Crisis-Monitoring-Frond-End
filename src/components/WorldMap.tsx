@@ -6,13 +6,14 @@ type CrisisEvent = {
   id: string;
   location: string;
   severity: 'high' | 'medium' | 'low';
+  coordinates?: [number, number]; // Optional coordinates
 };
 
 type WorldMapProps = {
   crisisEvents: CrisisEvent[];
 };
 
-const WorldMap: React.FC<WorldMapProps> = ({ crisisEvents }) => {
+const WorldMap: React.FC<WorldMapProps> = ({ crisisEvents = [] }) => {
   return (
     <div className="relative w-full rounded-lg overflow-hidden border border-border">
       <div className="aspect-[16/9] w-full bg-secondary grid-pattern">
@@ -23,7 +24,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ crisisEvents }) => {
           </div>
         </div>
 
-        {crisisEvents.map((event) => (
+        {crisisEvents && crisisEvents.map((event) => (
           <div 
             key={event.id} 
             className="absolute" 

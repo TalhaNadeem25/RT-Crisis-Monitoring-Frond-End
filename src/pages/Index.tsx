@@ -7,32 +7,46 @@ import WorldMap from '@/components/WorldMap';
 import CrisisFeeds from '@/components/CrisisFeeds';
 import StatsOverview from '@/components/StatsOverview';
 import AIDrivenInsights from '@/components/AIDrivenInsights';
+import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { toast } = useToast();
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
-  // Mock crisis data to simulate real-time monitoring
+  // Mock crisis data with proper typing
   const crisisEvents = [
     {
       id: '1',
       title: 'Istanbul Earthquake',
       location: 'Istanbul, Turkey',
       type: 'Natural Disaster',
-      severity: 'high',
+      severity: 'high' as const,
       affectedPopulation: 50000,
-      urgencyLevel: 'Critical'
+      urgencyLevel: 'Critical',
+      time: '08:42 AM',
+      date: 'Apr 12, 2025'
     },
     {
       id: '2', 
       title: 'Flood Emergency',
       location: 'Chennai, India',
       type: 'Natural Disaster', 
-      severity: 'medium',
+      severity: 'medium' as const,
       affectedPopulation: 25000,
-      urgencyLevel: 'High'
+      urgencyLevel: 'High',
+      time: '02:15 PM',
+      date: 'Apr 11, 2025'
     }
   ];
+
+  // Display welcome toast on component mount
+  React.useEffect(() => {
+    toast({
+      title: "System Ready",
+      description: "Crisis monitoring system is now active and scanning for incidents.",
+    });
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -50,7 +64,11 @@ const Index = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
             <div className="lg:col-span-2">
-              <WorldMap crisisEvents={crisisEvents} />
+              <WorldMap crisisEvents={crisisEvents.map(event => ({
+                id: event.id,
+                location: event.location,
+                severity: event.severity
+              }))} />
             </div>
             <div className="h-full">
               <CrisisFeeds />
@@ -65,9 +83,11 @@ const Index = () => {
                   title={event.title}
                   location={event.location}
                   category={event.type}
-                  severity={event.severity as any}
+                  severity={event.severity}
                   affectedCount={event.affectedPopulation}
                   description={`Urgency Level: ${event.urgencyLevel}`}
+                  time={event.time}
+                  date={event.date}
                 />
               ))}
             </div>
