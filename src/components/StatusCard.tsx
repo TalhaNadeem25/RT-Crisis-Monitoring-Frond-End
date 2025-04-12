@@ -10,8 +10,8 @@ type SeverityLevel = 'high' | 'medium' | 'low' | 'inactive';
 type StatusCardProps = {
   title: string;
   location: string;
-  time: string;
-  date: string;
+  time?: string;  // Made optional with default
+  date?: string;  // Made optional with default
   description: string;
   affectedCount: number;
   severity: SeverityLevel;
@@ -21,8 +21,8 @@ type StatusCardProps = {
 const StatusCard: React.FC<StatusCardProps> = ({
   title,
   location,
-  time,
-  date,
+  time = 'Recent',
+  date = 'Today',
   description,
   affectedCount,
   severity,
