@@ -1,6 +1,4 @@
-
 import AIInsights from '@/components/AIInsights';
-import Header from '@/components/Header';
 import LiveFeed from '@/components/LiveFeed';
 import Sidebar from '@/components/Sidebar';
 import StatsOverview from '@/components/StatsOverview';
@@ -15,7 +13,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <Header toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       
       <main className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'md:ml-64' : 'ml-0'}`}>
