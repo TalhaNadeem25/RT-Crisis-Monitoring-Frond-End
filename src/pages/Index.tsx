@@ -1,13 +1,13 @@
 
-import React, { useState } from 'react';
+import AIInsights from '@/components/AIInsights';
 import Header from '@/components/Header';
+import LiveFeed from '@/components/LiveFeed';
 import Sidebar from '@/components/Sidebar';
+import StatsOverview from '@/components/StatsOverview';
 import StatusCard from '@/components/StatusCard';
 import WorldMap from '@/components/WorldMap';
-import LiveFeed from '@/components/LiveFeed';
-import StatsOverview from '@/components/StatsOverview';
-import AIInsights from '@/components/AIInsights';
-import { mockIncidents, mockFeedItems } from '@/services/mockData';
+import { mockFeedItems, mockIncidents } from '@/services/mockData';
+import { useState } from 'react';
 
 const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,7 +21,7 @@ const Index = () => {
       <main className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'md:ml-64' : 'ml-0'}`}>
         <div className="container mx-auto py-6 px-4">
           <div className="mb-8">
-            <h1 className="text-2xl font-bold mb-2">Crisis Response Dashboard</h1>
+            <h1 className="text-2xl font-bold mb-2">Crisis Copilot</h1>
             <p className="text-muted-foreground">Real-time monitoring and AI-powered insights for emergency response</p>
           </div>
           

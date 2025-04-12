@@ -50,45 +50,51 @@ export const mockIncidents = [
   },
 ];
 
+enum FeedItemType {
+  ALERT = 'alert',
+  TWEET = 'tweet',
+  NEWS = 'news',
+}
+
 export const mockFeedItems = [
   {
     id: 'feed-001',
-    type: 'alert',
+    type: FeedItemType.ALERT, // Changed from string to enum
     content: 'BREAKING: Magnitude 5.9 earthquake reported in Istanbul. Initial reports of building damage in multiple districts.',
     source: 'Emergency Alert System',
     time: '3 min ago'
   },
   {
     id: 'feed-002',
-    type: 'tweet',
+    type: FeedItemType.TWEET, // Changed from string to enum
     content: 'Just felt a strong earthquake in Istanbul. Building shaking for about 20 seconds. People running outside. #IstanbulEarthquake',
     source: '@eyewitness',
     time: '5 min ago'
   },
   {
     id: 'feed-003',
-    type: 'news',
+    type: FeedItemType.NEWS, // Changed from string to enum
     content: 'Wildfire in Northern California now 30% contained. Firefighters making progress despite high winds.',
     source: 'CA News Network',
     time: '12 min ago'
   },
   {
     id: 'feed-004',
-    type: 'tweet',
+    type: FeedItemType.TWEET, // Changed from string to enum
     content: 'Flood waters rising quickly in Mumbai suburbs. Many roads impassable in Andheri and Kurla. #MumbaiRains',
     source: '@weather_watcher',
     time: '18 min ago'
   },
   {
     id: 'feed-005',
-    type: 'news',
+    type: FeedItemType.NEWS, // Changed from string to enum
     content: 'Typhoon Malakas strengthens to Category 4, expected to impact Philippines within 48 hours. Evacuations advised in coastal areas.',
     source: 'Global Weather Agency',
     time: '25 min ago'
   },
   {
     id: 'feed-006',
-    type: 'alert',
+    type: FeedItemType.ALERT, // Changed from string to enum
     content: 'Multiple aftershocks detected in Istanbul region. Magnitude range from 3.2 to 4.1. Citizens advised to stay away from damaged buildings.',
     source: 'Seismic Monitoring Center',
     time: '32 min ago'
