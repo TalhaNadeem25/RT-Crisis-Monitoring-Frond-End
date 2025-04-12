@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom crisis colors
+				crisis: {
+					low: '#3b82f6',
+					medium: '#f97316',
+					high: '#ef4444',
+					inactive: '#6b7280'
+				},
+				// Custom futuristic UI colors
+				futuristic: {
+					dark: '#0f172a',
+					primary: '#2563eb',
+					accent: '#3b82f6',
+					highlight: '#60a5fa',
+					success: '#10b981',
+					warning: '#f59e0b',
+					danger: '#ef4444',
+					info: '#0ea5e9',
+					muted: '#334155'
 				}
 			},
 			borderRadius: {
@@ -84,11 +104,37 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
+				},
+				blink: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' }
+				},
+				'glow-pulse': {
+					'0%, 100%': { 
+						boxShadow: '0 0 5px rgba(59, 130, 246, 0.5)',
+						borderColor: 'rgba(59, 130, 246, 0.5)'
+					},
+					'50%': { 
+						boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)',
+						borderColor: 'rgba(59, 130, 246, 0.8)'
+					}
+				},
+				'radar-scan': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'blink-warning': 'blink 2s ease-in-out infinite',
+				'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+				'radar-scan': 'radar-scan 8s linear infinite'
 			}
 		}
 	},
